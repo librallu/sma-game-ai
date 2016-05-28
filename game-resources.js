@@ -132,6 +132,7 @@ function loadCities()
       geometry.vertices.push(pa);
       geometry.vertices.push(pb);
       var line = new THREE.Line(geometry, lineMaterial);
+      world.links[j].mesh = line;
       scene.add(line);
     }
   });
