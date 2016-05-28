@@ -57,3 +57,18 @@ function tooltipContent(i) {
   text += '</ul>';
   tooltip.innerHTML = text;
 }
+
+// change color of outline of city i
+// ex color = 0x00ff00 (green)
+function change_outline(color, i) {
+  if ( world.cities[i].ok ) {
+    world.cities[i].outline.material.color.setHex(color);
+  }
+}
+
+function remove_outline(i) {
+  if ( world.cities[i].ok ) {
+    world.cities[i].outline.material.transparent = true;
+    world.cities[i].outline.material.opacity = 0.;
+  }
+}
