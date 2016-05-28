@@ -131,10 +131,14 @@ function selectCity(cityId)
   deselectCity();
   change_outline(0x00ffff, cityId);
   for ( var i = 0 ; i < world.links.length ; i++ ) {
-    if (world.links[i][0] == cityId)
+    if (world.links[i][0] == cityId) {
       change_outline(0xffff00, world.links[i][1]);
-    if (world.links[i][1] == cityId)
+      change_line(0xffff00, i);
+    }
+    if (world.links[i][1] == cityId) {
       change_outline(0xffff00, world.links[i][0]);
+      change_line(0xffff00, i);
+    }
   }
 }
 
@@ -144,4 +148,7 @@ function deselectCity()
     if ( world.cities[i].ok )
       remove_outline(i);
   }
+  for ( var i = 0 ; i < world.links.length ; i++ ) {
+      change_line(0xffffff, i);
+    }
 }

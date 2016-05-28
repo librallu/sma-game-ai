@@ -108,11 +108,6 @@ function loadCities()
     }
 
     // draw lines between cities
-    var lineMaterial = new THREE.LineBasicMaterial({
-      color: 0xaaaaaa,
-      linewidth: 7,
-      fog: true
-    });
     for ( var j = 0 ; j < world.links.length ; j++ )
     {
       var geometry = new THREE.Geometry();
@@ -131,9 +126,17 @@ function loadCities()
       console.log(pa);
       geometry.vertices.push(pa);
       geometry.vertices.push(pb);
-      var line = new THREE.Line(geometry, lineMaterial);
+      var line = new THREE.Line(
+        geometry,
+        new THREE.LineBasicMaterial({
+          color: 0xaaaaaa,
+          linewidth: 7,
+          fog: true
+        })
+      );
       world.links[j].mesh = line;
       scene.add(line);
+      change_line(0xffffff, j);
     }
   });
 }

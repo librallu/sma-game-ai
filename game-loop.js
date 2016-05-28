@@ -74,3 +74,7 @@ function remove_outline(i) {
     world.cities[i].outline.material.opacity = 0.;
   }
 }
+
+function change_line(color, i) {
+  world.links[i].mesh.material.color.setHex(color);
+}
