@@ -1,5 +1,7 @@
 
-function KeyboardControls(object, options) {
+// Add different events for the game controls
+function KeyboardControls(object, options)
+{
   this.object = object;
   options = options || {};
   this.domElement = options.domElement || document;
@@ -12,7 +14,8 @@ function KeyboardControls(object, options) {
 }
 
 KeyboardControls.prototype = {
-  update: function() {
+  update: function()
+  {
     if ( this.moveForward && this.object.position.z > 0 )
       this.object.position.z -= this.moveSpeed;
     if ( this.moveBackward && this.object.position.z < 100 )
@@ -23,14 +26,18 @@ KeyboardControls.prototype = {
       this.object.position.x += this.moveSpeed;
   },
 
-  onMouseWheel: function(event) {
-    if ( event.wheelDeltaY ) {
+  onMouseWheel: function(event)
+  {
+    if ( event.wheelDeltaY )
+    {
       var direction = -2*event.wheelDeltaY/Math.abs(event.wheelDeltaY);
     } else { // firefox
       var direction = 2*event.detail;
     }
-    if ( this.zoomCounter > -100 || direction > 0 ) {
-      if ( this.zoomCounter <= 10 || direction < 0 ) {
+    if ( this.zoomCounter > -100 || direction > 0 )
+    {
+      if ( this.zoomCounter <= 10 || direction < 0 )
+      {
         this.zoomCounter += direction;
         this.object.translateZ(direction);
         this.object.rotation.x += -0.005*direction;
@@ -38,8 +45,10 @@ KeyboardControls.prototype = {
     }
   },
 
-  onKeyDown: function(event) {
-    switch (event.keyCode) {
+  onKeyDown: function(event)
+  {
+    switch (event.keyCode)
+    {
       case 38: /* up */
       case 87: /* W */
         this.moveForward = true;
@@ -57,8 +66,10 @@ KeyboardControls.prototype = {
     }
   },
 
-  onKeyUp: function(event) {
-    switch (event.keyCode) {
+  onKeyUp: function(event)
+  {
+    switch (event.keyCode)
+    {
       case 38: /* up */
       case 87: /* W */
         this.moveForward = false;
@@ -77,4 +88,35 @@ KeyboardControls.prototype = {
         break;
     }
   }
+}
+
+// Mouse click event
+function setupClick() {
+  var projector = new THREE.Projector();
+
+  renderer.domElement.addEventListener('mousedown', function(event) {
+    var top = 0;
+    var left = 0;
+    var vector = new THREE.Vector3(
+      (event.pageX - left) / this.width * 2 - 1,
+      -(event.pageY - top) / this.height * 2 + 1,
+      0
+    );
+    vector.unproject(camera);
+    var raycaster = new THREE.Raycaster(
+      camera.position,
+      vector.sub(camera.position).normalize()
+    );
+
+    var OBJECTS = [];
+    for ( var i = 0 ; i < world.cities.length ; i++ ) {
+      if ( world.cities[i].ok )
+        OBJECTS.push(world.cities[i].mesh);
+    }
+
+    var intersects = raycaster.intersectObjects(OBJECTS);
+    if ( intersects.length ) {
+      intersects[0].object.position.x += 10;
+    }
+  }, false);
 }
