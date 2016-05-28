@@ -127,23 +127,49 @@ function setupClick() {
 // Select the city desired
 function selectCity(cityId)
 {
-  world.selected = cityId;
-  deselectCity();
-  change_outline(0x00ffff, cityId);
-  for ( var i = 0 ; i < world.links.length ; i++ ) {
-    if (world.links[i][0] == cityId) {
-      change_outline(0xffff00, world.links[i][1]);
-      change_line(0xffff00, i);
+  if (world.selected == undefined ) { // if no selection we select the city
+    deselectCity();
+    world.selected = cityId;
+    change_outline(0x00ffff, cityId);
+    for ( var i = 0 ; i < world.links.length ; i++ ) {
+      if (world.links[i][0] == cityId) {
+        change_outline(0xffff00, world.links[i][1]);
+        change_line(0xffff00, i);
+      }
+      if (world.links[i][1] == cityId) {
+        change_outline(0xffff00, world.links[i][0]);
+        change_line(0xffff00, i);
+      }
     }
-    if (world.links[i][1] == cityId) {
-      change_outline(0xffff00, world.links[i][0]);
-      change_line(0xffff00, i);
+  }
+  else {
+    if (world.selected == cityId) { // if selection = city selected we deselect the city
+        deselectCity();
+    }
+    else { // we check if city is neighboor of selection
+      var tmp = false;
+      for ( var i = 0 ; i < world.links.length ; i++ ) {
+        if (world.links[i][0] == cityId && world.links[i][1] == world.selected) {
+          tmp = true;
+          SendSoldiers(world.selected, cityId);
+        }
+        if (world.links[i][1] == cityId && world.links[i][0] == world.selected) {
+          tmp = true;
+          SendSoldiers(world.selected, cityId);
+        }
+      }
+      if (!tmp) { // if city is not neighboor of selection, we select the city
+        world.selected = undefined;
+        selectCity(cityId);
+      }
     }
   }
 }
 
+// Deselect the city
 function deselectCity()
 {
+  world.selected = undefined;
   for ( var i = 0 ; i < world.cities.length ; i++ ) {
     if ( world.cities[i].ok )
       remove_outline(i);
