@@ -70,7 +70,6 @@ function change_outline(color, i) {
 
 function remove_outline(i) {
   if ( world.cities[i].ok ) {
-    world.cities[i].outline.material.transparent = true;
     world.cities[i].outline.material.opacity = 0.;
   }
 }

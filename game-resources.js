@@ -84,8 +84,6 @@ function loadCities()
       world.cities[i].mesh.position.z = world.cities[i].position.z;
       world.cities[i].mesh.position.y = 5;
       world.cities[i].mesh.rotation.y = world.cities[i].rotation;
-      // world.cities[i].mesh.receiveShadow = true;
-      // world.cities[i].mesh.castShadow = true;
       scene.add(world.cities[i].mesh);
 
       // add halo
@@ -97,7 +95,8 @@ function loadCities()
       world.cities[i].outline.position.z = world.cities[i].mesh.position.z;
       world.cities[i].outline.position.y = world.cities[i].mesh.position.y;
       world.cities[i].outline.rotation.y = world.cities[i].mesh.rotation.y;
-
+      world.cities[i].outline.material.transparent = true;
+      world.cities[i].outline.material.opacity = 0.;
       scene.add(world.cities[i].outline);
 
       // create a tooltip
