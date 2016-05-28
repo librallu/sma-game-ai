@@ -20,11 +20,22 @@ var world = {
       mines: 2,
       gold: 5,
       defense: 5
+    },
+    {
+      position: {x: -50, z: 10},
+      rotation: 0,
+      ok: false,
+      player: 'blue',
+      soldiers: 3,
+      mines: 2,
+      gold: 5,
+      defense: 5
     }
   ],
 
   links: [
-    [0, 1]
+    [0, 1],
+    [0, 2]
   ],
 
   clouds: [
