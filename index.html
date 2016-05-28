@@ -39,15 +39,42 @@
   }
 
   .tooltip {
-      width: 100px;
-      height: 100px;
+      width: 75px;
       background-color: #bbb;
-      opacity: 0.5;
+      opacity: 0.75;
       border: 3px solid #ddd;
       color: #333;
       font-family: sans-serif;
       border-radius: 3px;
       position: fixed;
+  }
+
+  .tooltip ul {
+      list-style-type: none;
+      margin: 5px;
+      padding: 0;
+
+  }
+
+  .tooltip ul li {
+      list-style-type: none;
+      line-height: 27px;
+      height: 30px;
+      border-bottom: 1px solid #aaa;
+  }
+
+  .tooltip ul li img {
+      width: 25px;
+      height: 25px;
+      float: left;
+  }
+
+  .tooltip ul li span {
+      margin: 0;
+      padding: 0;
+      line-height: 27px;
+      margin-left: 10px;
+      float: right;
   }
 
 

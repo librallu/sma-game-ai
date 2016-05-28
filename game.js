@@ -53,7 +53,7 @@ var world = {
       player: 'red',
       soldiers: 4,
       mines: 2,
-      resources: 10,
+      gold: 10,
       defense: 2
     },
     {
@@ -63,7 +63,7 @@ var world = {
       player: 'blue',
       soldiers: 3,
       mines: 2,
-      resources: 5,
+      gold: 5,
       defense: 5
     }
   ],
@@ -229,6 +229,17 @@ function loadClouds() {
   });
 }
 
+function tooltipContent(i) {
+  var tooltip = world.cities[i].tooltip;
+  var text = '<ul>';
+  text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold+'</span></li>';
+  text += '<li><img src="sword.png"/><span class="value">'+world.cities[i].soldiers+'</span></li>';
+  text += '<li><img src="shield.png"/><span class="value">'+world.cities[i].defense+'</span></li>';
+  text += '<li><img src="showel.png"/><span class="value">'+world.cities[i].mines+'</span></li>';
+  text += '</ul>';
+  tooltip.innerHTML = text;
+}
+
 function loadCities() {
   var worldElt = document.getElementById('world');
   var loader = new THREE.JSONLoader();
@@ -355,6 +366,7 @@ function updateTooltips() {
       var v = projectionObj(world.cities[i].mesh);
       world.cities[i].tooltip.style.left = (v.x+50)+'px';
       world.cities[i].tooltip.style.top = (v.y-130)+'px';
+      tooltipContent(i);
     }
   }
 }
