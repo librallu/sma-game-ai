@@ -129,12 +129,12 @@ function selectCity(cityId)
 {
   world.selected = cityId;
   deselectCity();
-  change_outline(0x00ccaa, cityId);
+  change_outline(0x00ffff, cityId);
   for ( var i = 0 ; i < world.links.length ; i++ ) {
     if (world.links[i][0] == cityId)
-      change_outline(0x00ffcc, world.links[i][1]);
+      change_outline(0xffff00, world.links[i][1]);
     if (world.links[i][1] == cityId)
-      change_outline(0x00ffcc, world.links[i][0]);
+      change_outline(0xffff00, world.links[i][0]);
   }
 }
 
