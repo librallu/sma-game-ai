@@ -28,38 +28,43 @@ function loadSky()
 function loadGround()
 {
   var loader = new THREE.JSONLoader();
-  loader.load("./isle2.json", function(geometry,materials){
-    var mesh = new THREE.SkinnedMesh(
-      geometry,
-      new THREE.MeshFaceMaterial(materials)
-    );
-    var s = 120;
-    mesh.position.y -= 114;
-    mesh.position.z = -40;
-    mesh.scale.set(s+90,s,s-5);
-    scene.add(mesh);
+  loader.load("./mainisle.json", function(geometry,materials){
+      var mesh = new THREE.SkinnedMesh(
+        geometry,
+        new THREE.MeshFaceMaterial(materials)
+      );
+      var s = 75;
+      mesh.position.y -= 71;
+      mesh.position.z = -60;
+      mesh.scale.set(s+90,s,s-5);
+      scene.add(mesh);
+    });
 
-    var mesh2 = new THREE.SkinnedMesh(geometry,
-      new THREE.MeshFaceMaterial(materials)
-    );
-    mesh2.position.y = -90;
-    mesh2.position.z = -200;
-    mesh2.position.x = -500;
-    mesh2.scale.set(30,30,30);
+    loader.load("./isle2.json", function(geometry,materials){
 
-    scene.add(mesh2);
+      var mesh2 = new THREE.SkinnedMesh(geometry,
+        new THREE.MeshFaceMaterial(materials)
+      );
+      mesh2.position.y = -20;
+      mesh2.position.z = -200;
+      mesh2.position.x = -500;
+      mesh2.scale.set(30,30,30);
 
-    var mesh3 = new THREE.SkinnedMesh(geometry,
-      new THREE.MeshFaceMaterial(materials)
-    );
-    mesh3.position.y = 10;
-    mesh3.position.z = -200;
-    mesh3.position.x = 400;
-    mesh3.rotation.y = Math.PI/2;
-    mesh3.scale.set(10,10,10);
+      scene.add(mesh2);
 
-    scene.add(mesh3);
-});
+      var mesh3 = new THREE.SkinnedMesh(geometry,
+        new THREE.MeshFaceMaterial(materials)
+      );
+      mesh3.position.y = 10;
+      mesh3.position.z = -200;
+      mesh3.position.x = 400;
+      mesh3.rotation.y = Math.PI/2;
+      mesh3.scale.set(10,10,10);
+
+      scene.add(mesh3);
+
+    });
+
 }
 
 // Load the different cities of the game
