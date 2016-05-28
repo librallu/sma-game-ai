@@ -30,12 +30,17 @@
       overflow: hidden;
   }
 
+
   #context {
+      margin: 10px;
+      position: absolute;
       width: 250px;
-      background-color: chartreuse;
-      position: fixed;
+      height: 50px;
+      background-color: #aaa;
+      float: right;
       z-index: 30;
-      opacity: .4;
+      opacity: .7;
+      font-size: 1.5em;
   }
 
   .tooltip {
@@ -89,7 +94,7 @@
 </head>
 <body>
 
-    <div id="context"></div>
+    <button id="context">Fin du tour</button>
     <div id="world"></div>
 
     <script type="text/javascript" src="three.min.js"></script>

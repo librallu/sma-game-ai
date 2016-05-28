@@ -31,8 +31,6 @@ function init()
 
   // SET context
   world.context.elt = document.getElementById('context');
-  world.context.elt.style.height = HEIGHT+'px';
-  world.context.elt.style.display = 'none';
 
   renderer = new THREE.WebGLRenderer({
             alpha: true,
