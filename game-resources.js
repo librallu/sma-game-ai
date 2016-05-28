@@ -88,6 +88,18 @@ function loadCities()
       // world.cities[i].mesh.castShadow = true;
       scene.add(world.cities[i].mesh);
 
+      // add halo
+      var outlineMat = new THREE.MeshBasicMaterial( { color: 0x000000, side: THREE.BackSide } );
+      world.cities[i].outline = new THREE.Mesh( geometry, outlineMat );
+      world.cities[i].outline.scale.set(s*1.05,s*1.05,s*1.05);
+
+      world.cities[i].outline.position.x = world.cities[i].mesh.position.x;
+      world.cities[i].outline.position.z = world.cities[i].mesh.position.z;
+      world.cities[i].outline.position.y = world.cities[i].mesh.position.y;
+      world.cities[i].outline.rotation.y = world.cities[i].mesh.rotation.y;
+
+      scene.add(world.cities[i].outline);
+
       // create a tooltip
       var tooltip = document.createElement('div');
       tooltip.className = 'tooltip';
