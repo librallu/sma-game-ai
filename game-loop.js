@@ -49,7 +49,9 @@ function updateTooltips()
 // regenerates content for a city 'i' tooltip.
 function tooltipContent(i) {
   var tooltip = world.cities[i].tooltip;
-  var text = '<ul>';
+  var text = '';
+  if (world.cities[i].player == 'green') text += '<ul class="back-green">'
+  else text += '<ul class="back-red">'
   text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold+'</span></li>';
   text += '<li><img src="sword.png"/><span class="value">'+world.cities[i].soldiers+'</span></li>';
   text += '<li><img src="shield.png"/><span class="value">'+world.cities[i].defense+'</span></li>';
