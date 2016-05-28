@@ -116,7 +116,32 @@ function setupClick() {
 
     var intersects = raycaster.intersectObjects(OBJECTS);
     if ( intersects.length ) {
-      intersects[0].object.position.x += 10;
+      selectCity(intersects[0].object.cityId);
+    }
+    else {
+      deselectCity();
     }
   }, false);
+}
+
+// Select the city desired
+function selectCity(cityId)
+{
+  world.selected = cityId;
+  deselectCity();
+  change_outline(0x00ccaa, cityId);
+  for ( var i = 0 ; i < world.links.length ; i++ ) {
+    if (world.links[i][0] == cityId)
+      change_outline(0x00ffcc, world.links[i][1]);
+    if (world.links[i][1] == cityId)
+      change_outline(0x00ffcc, world.links[i][0]);
+  }
+}
+
+function deselectCity()
+{
+  for ( var i = 0 ; i < world.cities.length ; i++ ) {
+    if ( world.cities[i].ok )
+      remove_outline(i);
+  }
 }

@@ -65,6 +65,7 @@ function tooltipContent(i) {
 function change_outline(color, i) {
   if ( world.cities[i].ok ) {
     world.cities[i].outline.material.color.setHex(color);
+      world.cities[i].outline.material.opacity = 1.;
   }
 }
 

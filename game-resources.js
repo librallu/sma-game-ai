@@ -80,6 +80,7 @@ function loadCities()
       world.cities[i].mesh.scale.set(s,s,s);
       console.log(world.cities[i].mesh);
       world.cities[i].ok = true;
+      world.cities[i].mesh.cityId = i;
       world.cities[i].mesh.position.x = world.cities[i].position.x;
       world.cities[i].mesh.position.z = world.cities[i].position.z;
       world.cities[i].mesh.position.y = 5;

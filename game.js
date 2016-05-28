@@ -58,6 +58,9 @@ function init()
   // CALL THE RENDERER AND MAKE MAIN LOOP
   renderer.render(scene, camera);
 
+  // attribute for the city selected
+  world.selected = undefined;
+
   // CALL KEYBOARD EVENT LOADING
   setupThreeJS();
   setupClick();
