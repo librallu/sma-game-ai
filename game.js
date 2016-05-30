@@ -18,15 +18,19 @@ var popup = document.getElementById('popup');
 var popupButton = document.getElementById('popup-close');
 
 function popTuto() {
+
+  // popup.style.display = "block";
+
+  popupButton.addEventListener('click', function() {
+    popup.style.display = "none";
+  });
+
+  // remove when the user click elsewhere on the window
   window.onclick = function(event) {
     if ( event.target == popup ) {
       popup.style.display = "none";
     }
   }
-  popup.style.display = "block";
-  popupButton.addEventListener('click', function() {
-    popup.style.display = "none";
-  });
 }
 
 /* Initial function
