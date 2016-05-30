@@ -26,7 +26,7 @@ var world = {
       rotation: 0,
       ok: false,
       player: 'green',
-      soldiers: 3,
+      soldiers: 4,
       mines: 2,
       gold: 5,
       defense: 5

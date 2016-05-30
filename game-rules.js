@@ -27,6 +27,20 @@ function actionUsed(i) {
   world.cities[i].available = false;
 }
 
+// returns true if the game has ended, false elsewhere
+function checkEnd() {
+  var acc = world.cities[0].player;
+  for ( var i = 1 ; i < world.cities.length ; i++ ) {
+    if ( world.cities[i].player != acc ) return false;
+  }
+  return true;
+}
+
+// called when the game ends
+function atEnd() {
+  console.log('game over !');
+}
+
 
 function SendSoldiers(src, dest) {
   if ( checkActionUsed(src) ) {
@@ -37,7 +51,7 @@ function SendSoldiers(src, dest) {
         world.cities[dest].soldiers += world.cities[src].soldiers;
         world.cities[src].soldiers = 0;
       }
-      else {
+      else { // attack ennemy
         // soldiers vs soldiers
         var lastSoldiersFirst = world.cities[src].soldiers - world.cities[dest].soldiers
         world.cities[dest].soldiers = Math.max(world.cities[dest].soldiers - world.cities[src].soldiers, 0)
@@ -47,6 +61,11 @@ function SendSoldiers(src, dest) {
         var lastSoldiersSecond = world.cities[src].soldiers - world.cities[dest].defense;
         world.cities[dest].defense = Math.max(world.cities[dest].defense - world.cities[src].soldiers, 0);
         world.cities[src].soldiers = Math.max(lastSoldiersSecond, 0);
+
+        if ( world.cities[dest].defense == 0 && world.cities[dest].soldiers == 0) { // check if the city is taken
+          world.cities[dest].player = rules_data.current_player;
+          if ( checkEnd() ) { atEnd(); }
+        }
       }
     } else {
       console.log('Invalid move: can\'t move enemies soldiers.');
