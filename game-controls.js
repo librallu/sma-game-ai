@@ -180,7 +180,6 @@ function selectCity(cityId)
       }
     }
   }
-  console.log(world.neighboors);
 }
 
 // Deselect the city
@@ -195,5 +194,4 @@ function deselectCity()
   for ( var i = 0 ; i < world.links.length ; i++ ) {
     change_line(0xffffff, i);
   }
-  console.log(world.neighboors);
 }
