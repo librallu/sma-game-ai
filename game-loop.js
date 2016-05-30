@@ -68,14 +68,10 @@ function tooltipContent(i) {
   if ( world.cities[i].ok ) {
     var tooltip = world.cities[i].tooltip;
     var text = '';
-    if ( world.cities[i].available ) {
-      if (world.cities[i].player == 'green') {
-        text += '<ul class="back-green">'
-      } else {
-        text += '<ul class="back-red">'
-      }
+    if (world.cities[i].player == 'green') {
+      text += '<ul class="back-green">'
     } else {
-      text += '<ul class="back-blocked">'
+      text += '<ul class="back-red">'
     }
 
     text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold;
@@ -85,22 +81,19 @@ function tooltipContent(i) {
     }*/
 
     text += '<li><img src="sword.png"/><span class="value">'+world.cities[i].soldiers;
-    if (world.cities[i].available
-      && world.cities[i].player == rules_data.current_player
+    if ( world.cities[i].player == rules_data.current_player
       && world.cities[i].gold >= world.rules.soldiers) {
       text += '</span><button class="add" onclick="addSoldiers('+i+')">+ (-'+world.rules.soldiers+')</button></li>';
     }
 
     text += '<li><img src="shield.png"/><span class="value">'+world.cities[i].defense;
-    if (world.cities[i].available
-      && world.cities[i].player == rules_data.current_player
+    if ( world.cities[i].player == rules_data.current_player
       && world.cities[i].gold >= world.rules.defense) {
       text += '</span><button class="add" onclick="addDefense('+i+')">+ (-'+world.rules.defense+')</button></li>';
     }
 
     text += '<li><img src="showel.png"/><span class="value">'+world.cities[i].mines;
-    if (world.cities[i].available
-      && world.cities[i].player == rules_data.current_player
+    if ( world.cities[i].player == rules_data.current_player
       && world.cities[i].gold >= world.rules.mines) {
       text += '</span><button class="add" onclick="addMines('+i+')">+ (-'+world.rules.mines+')</button></li>';
     }

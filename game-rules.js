@@ -109,7 +109,7 @@ function nextTurn() {
 }
 
 function addSomething(i, action) {
-  if ( rules_data.current_player == world.cities[i].player && checkActionUsed(i) ) {
+  if ( rules_data.current_player == world.cities[i].player ) {
     action(i);
   }
   actionOn(i);
