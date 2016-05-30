@@ -14,6 +14,21 @@ function setupThreeJS()
   controls.lookSpeed = 0.1;
 }
 
+var popup = document.getElementById('popup');
+var popupButton = document.getElementById('popup-close');
+
+function popTuto() {
+  window.onclick = function(event) {
+    if ( event.target == popup ) {
+      popup.style.display = "none";
+    }
+  }
+  popup.style.display = "block";
+  popupButton.addEventListener('click', function() {
+    popup.style.display = "none";
+  });
+}
+
 /* Initial function
   Call the load main function
   Create the lights
@@ -64,6 +79,8 @@ function init()
   setupClick();
 
   initRules();
+
+  popTuto();
 
   main_loop();
 }
