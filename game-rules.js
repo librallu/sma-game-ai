@@ -72,6 +72,8 @@ function SendSoldiers(src, dest) {
 
         if ( world.cities[dest].defense == 0 && world.cities[dest].soldiers == 0) { // check if the city is taken
           world.cities[dest].player = rules_data.current_player;
+          world.cities[dest].soldiers = world.cities[src].soldiers;
+          world.cities[src].soldiers = 0;
           if ( checkEnd() ) { atEnd(); }
         }
       }
