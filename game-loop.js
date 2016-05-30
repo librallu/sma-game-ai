@@ -55,7 +55,7 @@ function updateTooltips()
       var v = projectionObj(world.cities[i].mesh);
       world.cities[i].tooltip.style.left = (v.x+50)+'px';
       world.cities[i].tooltip.style.top = (v.y-130)+'px';
-      tooltipContent(i);
+      // tooltipContent(i);
     }
   }
 }
@@ -71,10 +71,10 @@ function tooltipContent(i) {
       text += '<ul class="back-blocked">'
     }
   } else text += '<ul class="back-red">'
-  text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold+'</span></li>';
-  text += '<li><img src="sword.png"/><span class="value">'+world.cities[i].soldiers+'</span></li>';
-  text += '<li><img src="shield.png"/><span class="value">'+world.cities[i].defense+'</span></li>';
-  text += '<li><img src="showel.png"/><span class="value">'+world.cities[i].mines+'</span></li>';
+  text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold+'</span><button class="add">+</button></li>';
+  text += '<li><img src="sword.png"/><span class="value">'+world.cities[i].soldiers+'</span><button class="add">+</button></li>';
+  text += '<li><img src="shield.png"/><span class="value">'+world.cities[i].defense+'</span><button class="add">+</button></li>';
+  text += '<li><img src="showel.png"/><span class="value">'+world.cities[i].mines+'</span><button class="add">+</button></li>';
   text += '</ul>';
   tooltip.innerHTML = text;
 }

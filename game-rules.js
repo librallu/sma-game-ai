@@ -18,6 +18,9 @@ function reactUserClick() {
   console.log('click');
 }
 
+function actionOn(i) {
+  tooltipContent(i);
+}
 
 function checkActionUsed(i) {
   return world.cities[i].available;
@@ -74,6 +77,8 @@ function SendSoldiers(src, dest) {
   } else {
     console.log('This city has already played this turn');
   }
+  actionOn(src);
+  actionOn(dest);
 }
 
 // end the current turn and start next
