@@ -72,7 +72,9 @@ function tooltipContent(i) {
         text += '<ul class="back-blocked">'
       }
     } else text += '<ul class="back-red">'
-    text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold+'</span><button class="add">+</button></li>';
+    text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold;
+    text += '</span><button class="add" onclick="addGold('+i+')">+</button></li>';
+
     text += '<li><img src="sword.png"/><span class="value">'+world.cities[i].soldiers+'</span><button class="add">+</button></li>';
     text += '<li><img src="shield.png"/><span class="value">'+world.cities[i].defense+'</span><button class="add">+</button></li>';
     text += '<li><img src="showel.png"/><span class="value">'+world.cities[i].mines+'</span><button class="add">+</button></li>';

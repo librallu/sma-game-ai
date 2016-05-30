@@ -99,8 +99,20 @@ function nextTurn() {
   }
 }
 
+function addGold(i) {
+  if ( rules_data.current_player == world.cities[i].player && checkActionUsed(i) ) {
+    console.log('add gold for '+i);
+    world.cities[i].gold += world.cities[i].mines;
+    world.cities[i].available = false;
+  }
+  actionOn(i);
+}
+
 // add a mine for the city i
 function addMine(i) {
-  world.cities[i].mines += 1;
-  world.cities[i].available = false;
+  if ( rules_data.current_player == world.cities[i].player && checkActionUsed(i) ) {
+    world.cities[i].mines += 1;
+    world.cities[i].available = false;
+  }
+  actionOn(i);
 }
