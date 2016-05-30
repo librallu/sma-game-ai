@@ -14,6 +14,7 @@ function initRules() {
 
 // called when the user click on the button
 function reactUserClick() {
+  nextTurn();
   console.log('click');
 }
 

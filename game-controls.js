@@ -164,10 +164,12 @@ function selectCity(cityId)
         if (world.links[i][0] == cityId && world.links[i][1] == world.selected) {
           tmp = true;
           SendSoldiers(world.selected, cityId);
+          deselectCity();
         }
         if (world.links[i][1] == cityId && world.links[i][0] == world.selected) {
           tmp = true;
           SendSoldiers(world.selected, cityId);
+            deselectCity();
         }
       }
       if (!tmp) { // if city is not neighboor of selection, we select the city
