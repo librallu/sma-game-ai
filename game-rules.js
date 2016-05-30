@@ -93,7 +93,10 @@ function nextTurn() {
 
   // make available cities
   for ( var i = 0 ; i < world.cities.length ; i++ ) {
-    world.cities[i].available = true;
+    if (world.cities[i].player == rules_data.current_player) {
+      world.cities[i].available = true;
+      world.cities[i].gold += world.cities[i].mines;
+    }
     tooltipContent(i);
     remove_outline(i);
   }
@@ -116,17 +119,20 @@ function addGold(i) {
 function addSoldiers(i) {
   addSomething(i, function() {
     world.cities[i].soldiers += 1;
+    world.cities[i].gold -= world.rules.soldiers;
   });
 }
 
 function addDefense(i) {
   addSomething(i, function() {
     world.cities[i].defense += 1;
+    world.cities[i].gold -= world.rules.defense;
   });
 }
 
 function addMines(i) {
   addSomething(i, function() {
     world.cities[i].mines += 1;
+    world.cities[i].gold -= world.rules.mines;
   });
 }

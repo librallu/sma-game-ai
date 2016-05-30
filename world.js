@@ -60,5 +60,11 @@ var world = {
   ],
 
   neighboors: [
-  ]
+  ],
+
+  rules: {
+    soldiers: 2,
+    defense: 3,
+    mines: 5
+  }
 };
