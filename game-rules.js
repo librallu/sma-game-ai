@@ -91,3 +91,9 @@ function nextTurn() {
     remove_outline(i);
   }
 }
+
+// add a mine for the city i
+function addMine(i) {
+  world.cities[i].mines += 1;
+  world.cities[i].available = false;
+}
