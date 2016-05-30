@@ -62,21 +62,23 @@ function updateTooltips()
 
 // regenerates content for a city 'i' tooltip.
 function tooltipContent(i) {
-  var tooltip = world.cities[i].tooltip;
-  var text = '';
-  if (world.cities[i].player == 'green') {
-    if ( world.cities[i].available ) {
-      text += '<ul class="back-green">'
-    } else {
-      text += '<ul class="back-blocked">'
-    }
-  } else text += '<ul class="back-red">'
-  text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold+'</span><button class="add">+</button></li>';
-  text += '<li><img src="sword.png"/><span class="value">'+world.cities[i].soldiers+'</span><button class="add">+</button></li>';
-  text += '<li><img src="shield.png"/><span class="value">'+world.cities[i].defense+'</span><button class="add">+</button></li>';
-  text += '<li><img src="showel.png"/><span class="value">'+world.cities[i].mines+'</span><button class="add">+</button></li>';
-  text += '</ul>';
-  tooltip.innerHTML = text;
+  if ( world.cities[i].ok ) {
+    var tooltip = world.cities[i].tooltip;
+    var text = '';
+    if (world.cities[i].player == 'green') {
+      if ( world.cities[i].available ) {
+        text += '<ul class="back-green">'
+      } else {
+        text += '<ul class="back-blocked">'
+      }
+    } else text += '<ul class="back-red">'
+    text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold+'</span><button class="add">+</button></li>';
+    text += '<li><img src="sword.png"/><span class="value">'+world.cities[i].soldiers+'</span><button class="add">+</button></li>';
+    text += '<li><img src="shield.png"/><span class="value">'+world.cities[i].defense+'</span><button class="add">+</button></li>';
+    text += '<li><img src="showel.png"/><span class="value">'+world.cities[i].mines+'</span><button class="add">+</button></li>';
+    text += '</ul>';
+    tooltip.innerHTML = text;
+  }
 }
 
 // change color of outline of city i
