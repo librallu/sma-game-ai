@@ -133,12 +133,24 @@ function selectCity(cityId)
     change_outline(0x00ffff, cityId);
     for ( var i = 0 ; i < world.links.length ; i++ ) {
       if (world.links[i][0] == cityId) {
-        change_outline(0xffff00, world.links[i][1]);
-        change_line(0xffff00, i);
+        if (world.cities[cityId].player == world.cities[world.links[i][1]].player) {
+          change_outline(0x00ff00, world.links[i][1]);
+          change_line(0x00ff00, i);
+        }
+        else {
+          change_outline(0xff0000, world.links[i][1]);
+          change_line(0xff0000, i);
+        }
       }
       if (world.links[i][1] == cityId) {
-        change_outline(0xffff00, world.links[i][0]);
-        change_line(0xffff00, i);
+        if (world.cities[cityId].player == world.cities[world.links[i][0]].player) {
+          change_outline(0x00ff00, world.links[i][0]);
+          change_line(0x00ff00, i);
+        }
+        else {
+          change_outline(0xff0000, world.links[i][0]);
+          change_line(0xff0000, i);
+        }
       }
     }
   }
