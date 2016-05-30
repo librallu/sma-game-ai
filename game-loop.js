@@ -18,10 +18,13 @@ function updateCities()
 {
   for ( var i = 0 ; i < world.cities.length ; i++ ) {
     if (world.cities[i].player == rules_data.current_player
-      && world.cities[i].available == true
       && world.selected != i
       && world.neighboors.indexOf(i) == -1) {
-        change_outline(0xff5a00, i);
+        if (world.cities[i].available == true) {
+          change_outline(0xff5a00, i);
+        } else {
+          remove_outline(i);          
+        }
     }
   }
 }
