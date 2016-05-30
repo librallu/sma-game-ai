@@ -99,20 +99,34 @@ function nextTurn() {
   }
 }
 
-function addGold(i) {
+function addSomething(i, action) {
   if ( rules_data.current_player == world.cities[i].player && checkActionUsed(i) ) {
-    console.log('add gold for '+i);
-    world.cities[i].gold += world.cities[i].mines;
+    action(i);
     world.cities[i].available = false;
   }
   actionOn(i);
 }
 
-// add a mine for the city i
-function addMine(i) {
-  if ( rules_data.current_player == world.cities[i].player && checkActionUsed(i) ) {
+function addGold(i) {
+  addSomething(i, function() {
+    world.cities[i].gold += world.cities[i].mines;
+  })
+}
+
+function addSoldiers(i) {
+  addSomething(i, function() {
+    world.cities[i].soldiers += 1;
+  })
+}
+
+function addDefense(i) {
+  addSomething(i, function() {
+    world.cities[i].defense += 1;
+  })
+}
+
+function addMines(i) {
+  addSomething(i, function() {
     world.cities[i].mines += 1;
-    world.cities[i].available = false;
-  }
-  actionOn(i);
+  })
 }

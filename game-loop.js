@@ -23,7 +23,7 @@ function updateCities()
         if (world.cities[i].available == true) {
           change_outline(0xff5a00, i);
         } else {
-          remove_outline(i);          
+          remove_outline(i);
         }
     }
   }
@@ -77,13 +77,19 @@ function tooltipContent(i) {
     } else {
       text += '<ul class="back-blocked">'
     }
-    
+
     text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold;
     text += '</span><button class="add" onclick="addGold('+i+')">+</button></li>';
 
-    text += '<li><img src="sword.png"/><span class="value">'+world.cities[i].soldiers+'</span><button class="add">+</button></li>';
-    text += '<li><img src="shield.png"/><span class="value">'+world.cities[i].defense+'</span><button class="add">+</button></li>';
-    text += '<li><img src="showel.png"/><span class="value">'+world.cities[i].mines+'</span><button class="add">+</button></li>';
+    text += '<li><img src="sword.png"/><span class="value">'+world.cities[i].soldiers;
+    text += '</span><button class="add" onclick="addSoldiers('+i+')">+</button></li>';
+
+    text += '<li><img src="shield.png"/><span class="value">'+world.cities[i].defense;
+    text += '</span><button class="add" onclick="addDefense('+i+')">+</button></li>';
+
+    text += '<li><img src="showel.png"/><span class="value">'+world.cities[i].mines;
+    text += '</span><button class="add" onclick="addMines('+i+')">+</button></li>';
+
     text += '</ul>';
     tooltip.innerHTML = text;
   }
