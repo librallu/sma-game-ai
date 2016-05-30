@@ -65,13 +65,16 @@ function tooltipContent(i) {
   if ( world.cities[i].ok ) {
     var tooltip = world.cities[i].tooltip;
     var text = '';
-    if (world.cities[i].player == 'green') {
-      if ( world.cities[i].available ) {
+    if ( world.cities[i].available ) {
+      if (world.cities[i].player == 'green') {
         text += '<ul class="back-green">'
       } else {
-        text += '<ul class="back-blocked">'
+        text += '<ul class="back-red">'
       }
-    } else text += '<ul class="back-red">'
+    } else {
+      text += '<ul class="back-blocked">'
+    }
+    
     text += '<li><img src="gold.png"/><span class="value">'+world.cities[i].gold;
     text += '</span><button class="add" onclick="addGold('+i+')">+</button></li>';
 
