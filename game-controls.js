@@ -127,7 +127,9 @@ function setupClick() {
 // Select the city desired
 function selectCity(cityId)
 {
-  if (world.selected == undefined ) { // if no selection we select the city
+  if (world.selected == undefined
+    && world.cities[cityId].available
+    && world.cities[cityId].player == rules_data.current_player) { // if no selection we select the city
     deselectCity();
     world.selected = cityId;
     change_outline(0x00ffff, cityId);
@@ -174,7 +176,9 @@ function selectCity(cityId)
             deselectCity();
         }
       }
-      if (!tmp) { // if city is not neighboor of selection, we select the city
+      if (!tmp
+        && world.cities[cityId].available
+        && world.cities[cityId].player == rules_data.current_player) { // if city is not neighboor of selection, we select the city
         deselectCity();
         selectCity(cityId);
       }
