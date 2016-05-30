@@ -110,6 +110,7 @@ function loadCities()
       tooltip.className = 'tooltip';
       document.body.insertBefore(tooltip, worldElt);
       world.cities[i].tooltip = tooltip;
+      tooltipContent(i);
     }
 
     // draw lines between cities

@@ -18,6 +18,9 @@ function reactUserClick() {
   console.log('click');
 }
 
+function actionOn(i) {
+  tooltipContent(i);
+}
 
 function checkActionUsed(i) {
   return world.cities[i].available;
@@ -74,6 +77,8 @@ function SendSoldiers(src, dest) {
   } else {
     console.log('This city has already played this turn');
   }
+  actionOn(src);
+  actionOn(dest);
 }
 
 // end the current turn and start next
@@ -89,12 +94,25 @@ function nextTurn() {
   // make available cities
   for ( var i = 0 ; i < world.cities.length ; i++ ) {
     world.cities[i].available = true;
+    tooltipContent(i);
     remove_outline(i);
   }
 }
 
+function addGold(i) {
+  if ( rules_data.current_player == world.cities[i].player && checkActionUsed(i) ) {
+    console.log('add gold for '+i);
+    world.cities[i].gold += world.cities[i].mines;
+    world.cities[i].available = false;
+  }
+  actionOn(i);
+}
+
 // add a mine for the city i
 function addMine(i) {
-  world.cities[i].mines += 1;
-  world.cities[i].available = false;
+  if ( rules_data.current_player == world.cities[i].player && checkActionUsed(i) ) {
+    world.cities[i].mines += 1;
+    world.cities[i].available = false;
+  }
+  actionOn(i);
 }

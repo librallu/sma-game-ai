@@ -44,7 +44,6 @@
   }
 
   .tooltip {
-      width: 75px;
       background-color: #bbb;
       opacity: 0.75;
       border: 3px solid #ddd;
@@ -52,6 +51,25 @@
       font-family: sans-serif;
       border-radius: 3px;
       position: fixed;
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .add {
+    font-weight: bold;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 10px;
+    float: right;
+    margin-top: 5px;
+  }
+
+  .add:hover {
+      background-color: red;
   }
 
   .tooltip ul {
@@ -83,9 +101,10 @@
   }
 
   .tooltip ul li img {
+      float: left;
+      margin-top: 3px;
       width: 25px;
       height: 25px;
-      float: left;
   }
 
   .tooltip ul li span {
@@ -93,7 +112,6 @@
       padding: 0;
       line-height: 27px;
       margin-left: 10px;
-      float: right;
   }
 
 
