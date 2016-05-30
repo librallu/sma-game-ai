@@ -63,8 +63,8 @@ var world = {
   ],
 
   rules: {
-    soldiers: 2,
-    defense: 3,
+    soldiers: 3,
+    defense: 2,
     mines: 5
   }
 };
