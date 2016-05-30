@@ -110,23 +110,23 @@ function addSomething(i, action) {
 function addGold(i) {
   addSomething(i, function() {
     world.cities[i].gold += world.cities[i].mines;
-  })
+  });
 }
 
 function addSoldiers(i) {
   addSomething(i, function() {
     world.cities[i].soldiers += 1;
-  })
+  });
 }
 
 function addDefense(i) {
   addSomething(i, function() {
     world.cities[i].defense += 1;
-  })
+  });
 }
 
 function addMines(i) {
   addSomething(i, function() {
     world.cities[i].mines += 1;
-  })
+  });
 }
