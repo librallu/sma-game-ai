@@ -16,6 +16,8 @@ function setupThreeJS()
 
 var popup = document.getElementById('popup');
 var popupButton = document.getElementById('popup-close');
+var popupTitle = document.getElementById('popup-title');
+var popupBody = document.getElementById('popup-body');
 
 function popTuto() {
 
@@ -31,6 +33,14 @@ function popTuto() {
       popup.style.display = "none";
     }
   }
+}
+
+function popWin() {
+
+  popup.style.display = "block";
+  popupTitle.innerHTML = 'Victoire !';
+  popupBody.innerHTML = "Wesh, t'as vu, t'as gagné !";
+
 }
 
 /* Initial function

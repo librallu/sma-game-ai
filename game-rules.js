@@ -41,8 +41,12 @@ function checkEnd() {
 
 // called when the game ends
 function atEnd() {
-  if ( world.cities[0].player == 'green' ) console.log('You Win !');
-  else console.log("You Loose !");
+  if ( world.cities[0].player == 'green' ) {
+    console.log('You Win !');
+    popWin();
+  } else {
+    console.log("You Loose !");
+  }
 }
 
 
