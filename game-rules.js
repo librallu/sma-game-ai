@@ -111,7 +111,6 @@ function nextTurn() {
 function addSomething(i, action) {
   if ( rules_data.current_player == world.cities[i].player && checkActionUsed(i) ) {
     action(i);
-    world.cities[i].available = false;
   }
   actionOn(i);
 }
