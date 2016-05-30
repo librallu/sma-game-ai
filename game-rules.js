@@ -69,5 +69,6 @@ function nextTurn() {
   // make available cities
   for ( var i = 0 ; i < world.cities.length ; i++ ) {
     world.cities[i].available = true;
+    remove_outline(i);
   }
 }

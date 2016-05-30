@@ -141,6 +141,7 @@ function selectCity(cityId)
           change_outline(0xff0000, world.links[i][1]);
           change_line(0xff0000, i);
         }
+        world.neighboors.push(i);
       }
       if (world.links[i][1] == cityId) {
         if (world.cities[cityId].player == world.cities[world.links[i][0]].player) {
@@ -151,6 +152,7 @@ function selectCity(cityId)
           change_outline(0xff0000, world.links[i][0]);
           change_line(0xff0000, i);
         }
+        world.neighboors.push(i);
       }
     }
   }
@@ -173,22 +175,25 @@ function selectCity(cityId)
         }
       }
       if (!tmp) { // if city is not neighboor of selection, we select the city
-        world.selected = undefined;
+        deselectCity();
         selectCity(cityId);
       }
     }
   }
+  console.log(world.neighboors);
 }
 
 // Deselect the city
 function deselectCity()
 {
   world.selected = undefined;
+  world.neighboors = [];
   for ( var i = 0 ; i < world.cities.length ; i++ ) {
     if ( world.cities[i].ok )
       remove_outline(i);
   }
   for ( var i = 0 ; i < world.links.length ; i++ ) {
-      change_line(0xffffff, i);
-    }
+    change_line(0xffffff, i);
+  }
+  console.log(world.neighboors);
 }

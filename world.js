@@ -57,5 +57,8 @@ var world = {
   ],
 
   context: [
+  ],
+
+  neighboors: [
   ]
 };
