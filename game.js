@@ -63,6 +63,8 @@ function init()
   setupThreeJS();
   setupClick();
 
+  initRules();
+
   main_loop();
 }
 
