@@ -36,7 +36,7 @@ function loadGround()
       var s = 75;
       mesh.position.y -= 71;
       mesh.position.z = -60;
-      mesh.scale.set(s+90,s,s-5);
+      mesh.scale.set(s+40,s,s-5);
       scene.add(mesh);
     });
 
