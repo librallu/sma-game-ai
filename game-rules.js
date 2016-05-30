@@ -74,6 +74,7 @@ function SendSoldiers(src, dest) {
           world.cities[dest].player = rules_data.current_player;
           world.cities[dest].soldiers = world.cities[src].soldiers;
           world.cities[src].soldiers = 0;
+          world.cities[dest].available = false;
           if ( checkEnd() ) { atEnd(); }
         }
       }
