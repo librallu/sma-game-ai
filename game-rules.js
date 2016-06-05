@@ -90,7 +90,7 @@ function SendSoldiers(src, dest) {
 
 function ia_play() {
   for ( var i = 0 ; i < world.cities.length ; i++ ) {
-    addMines(i);
+    while addMines(i);
   }
 }
 
