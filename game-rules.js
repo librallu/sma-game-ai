@@ -122,44 +122,50 @@ function nextTurn() {
 }
 
 function addSomething(i, action) {
+  var state = false;
   if ( rules_data.current_player == world.cities[i].player ) {
-    action(i);
+    state = action(i);
   }
   actionOn(i);
+  return state;
 }
 
 function addGold(i) {
-  addSomething(i, function() {
+  return addSomething(i, function() {
     world.cities[i].gold += world.cities[i].mines;
+    return true;
   });
 }
 
 function addSoldiers(i) {
-  if ( world.cities[i].player == rules_data.current_player
-  && world.cities[i].gold >= world.rules.soldiers) {
-    addSomething(i, function() {
+  if (world.cities[i].gold >= world.rules.soldiers) {
+    return addSomething(i, function() {
       world.cities[i].soldiers += 1;
       world.cities[i].gold -= world.rules.soldiers;
+      return true;
     });
   }
+  else return false;
 }
 
 function addDefense(i) {
-  if ( world.cities[i].player == rules_data.current_player
-  && world.cities[i].gold >= world.rules.defense) {
-    addSomething(i, function() {
+  if (world.cities[i].gold >= world.rules.defense) {
+    return addSomething(i, function() {
       world.cities[i].defense += 1;
       world.cities[i].gold -= world.rules.defense;
+      return true;
     });
   }
+  else return false;
 }
 
 function addMines(i) {
-  if ( world.cities[i].player == rules_data.current_player
-  && world.cities[i].gold >= world.rules.mines) {
-    addSomething(i, function() {
+  if (world.cities[i].gold >= world.rules.mines) {
+    return addSomething(i, function() {
       world.cities[i].mines += 1;
       world.cities[i].gold -= world.rules.mines;
+      return true;
     });
   }
+  else return false;
 }
