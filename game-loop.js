@@ -19,7 +19,7 @@ function updateCities()
   for ( var i = 0 ; i < world.cities.length ; i++ ) {
     if (world.cities[i].player == rules_data.current_player
       && world.selected != i
-      && world.neighboors.indexOf(i) == -1) {
+      && world.neighbors.indexOf(i) == -1) {
         if (world.cities[i].available == true) {
           change_outline(0xff5a00, i);
         } else {

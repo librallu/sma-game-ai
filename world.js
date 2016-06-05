@@ -59,7 +59,7 @@ var world = {
   context: [
   ],
 
-  neighboors: [
+  neighbors: [
   ],
 
   rules: {
