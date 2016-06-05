@@ -88,6 +88,12 @@ function SendSoldiers(src, dest) {
   actionOn(dest);
 }
 
+function ia_play() {
+  for ( var i = 0 ; i < world.cities.length ; i++ ) {
+    addMines(i);
+  }
+}
+
 // end the current turn and start next
 function nextTurn() {
   // change current player
@@ -107,6 +113,12 @@ function nextTurn() {
     tooltipContent(i);
     remove_outline(i);
   }
+
+  if ( rules_data.current_player == 'red' ) {
+    ia_play();
+    nextTurn();
+  }
+
 }
 
 function addSomething(i, action) {
