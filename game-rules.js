@@ -123,22 +123,31 @@ function addGold(i) {
 }
 
 function addSoldiers(i) {
-  addSomething(i, function() {
-    world.cities[i].soldiers += 1;
-    world.cities[i].gold -= world.rules.soldiers;
-  });
+  if ( world.cities[i].player == rules_data.current_player
+  && world.cities[i].gold >= world.rules.soldiers) {
+    addSomething(i, function() {
+      world.cities[i].soldiers += 1;
+      world.cities[i].gold -= world.rules.soldiers;
+    });
+  }
 }
 
 function addDefense(i) {
-  addSomething(i, function() {
-    world.cities[i].defense += 1;
-    world.cities[i].gold -= world.rules.defense;
-  });
+  if ( world.cities[i].player == rules_data.current_player
+  && world.cities[i].gold >= world.rules.defense) {
+    addSomething(i, function() {
+      world.cities[i].defense += 1;
+      world.cities[i].gold -= world.rules.defense;
+    });
+  }
 }
 
 function addMines(i) {
-  addSomething(i, function() {
-    world.cities[i].mines += 1;
-    world.cities[i].gold -= world.rules.mines;
-  });
+  if ( world.cities[i].player == rules_data.current_player
+  && world.cities[i].gold >= world.rules.mines) {
+    addSomething(i, function() {
+      world.cities[i].mines += 1;
+      world.cities[i].gold -= world.rules.mines;
+    });
+  }
 }
