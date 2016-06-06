@@ -61,8 +61,8 @@ function SendSoldiers(src, dest) {
       }
       else { // attack ennemy
         // soldiers vs soldiers
-        var lastSoldiersFirst = world.cities[src].soldiers - world.cities[dest].soldiers
-        world.cities[dest].soldiers = Math.max(world.cities[dest].soldiers - world.cities[src].soldiers, 0)
+        var lastSoldiersFirst = world.cities[src].soldiers - world.cities[dest].soldiers;
+        world.cities[dest].soldiers = Math.max(world.cities[dest].soldiers - world.cities[src].soldiers, 0);
         world.cities[src].soldiers = Math.max(lastSoldiersFirst, 0);
 
         // soldiers vs defense
