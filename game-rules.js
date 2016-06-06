@@ -46,6 +46,7 @@ function atEnd() {
     popWin();
   } else {
     console.log("You Loose !");
+    popDefeat();
   }
 }
 
@@ -92,7 +93,6 @@ function ia_play() {
   for ( var i = 0 ; i < world.cities.length ; i++ ) {
     if (world.cities[i].player == rules_data.current_player) {
       result = call_ia(i);
-      console.log(result);
     }
   }
 }

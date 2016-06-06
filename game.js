@@ -69,7 +69,15 @@ function popWin() {
 
   popup.style.display = "block";
   popupTitle.innerHTML = 'Victoire !';
-  popupBody.innerHTML = "Wesh, t'as vu, t'as gagné !";
+  popupBody.innerHTML = "Vous avez triomphé de l'adversaire !";
+
+}
+
+function popDefeat() {
+
+  popup.style.display = "block";
+  popupTitle.innerHTML = 'Défaite !';
+  popupBody.innerHTML = "L'adversaire a triomphé !";
 
 }
 

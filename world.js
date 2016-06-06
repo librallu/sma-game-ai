@@ -66,5 +66,12 @@ var world = {
     soldiers: 3,
     defense: 2,
     mines: 5
+  },
+
+  agent_benefit: {
+    'army': 3,
+    'defense': 5,
+    'mine': 1,
+    'soutien': 4
   }
 };
