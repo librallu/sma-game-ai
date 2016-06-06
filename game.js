@@ -23,7 +23,7 @@ var sliderRight = document.getElementById('slider-right');
 var sliderLeft = document.getElementById('slider-left');
 var slider_state = 0;
 var slider_size = 640;
-var slider_nbelt = slider.childNodes.length;
+var slider_nbelt = document.querySelectorAll('#slider .slider a').length;
 console.log(slider_nbelt);
 
 function popTuto() {
