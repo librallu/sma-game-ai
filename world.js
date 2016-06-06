@@ -2,41 +2,97 @@
 var world = {
   cities: [
     {
-      position: {x: 30, z: 0},
+      position: {x: -120, z:-40},
+      rotation: 0,
+      ok: false,
+      player: 'green',
+      soldiers: 0,
+      mines: 3,
+      gold: 4,
+      defense: 3
+    },
+    {
+      position: {x: -135, z:20},
+      rotation: 0,
+      ok: false,
+      player: 'green',
+      soldiers: 0,
+      mines: 3,
+      gold: 4,
+      defense: 3
+    },
+    {
+      position: {x: -60, z:-10},
+      rotation: 0,
+      ok: false,
+      player: 'green',
+      soldiers: 0,
+      mines: 2,
+      gold: 8,
+      defense: 7
+    },
+    {
+      position: {x: 0, z:-40},
+      rotation: 0,
+      ok: false,
+      player: 'green',
+      soldiers: 0,
+      mines: 2,
+      gold: 6,
+      defense: 4
+    },
+    {
+      position: {x: -15, z:20},
       rotation: 0,
       ok: false,
       player: 'red',
-      soldiers: 4,
+      soldiers: 0,
       mines: 2,
-      gold: 10,
-      defense: 2
+      gold: 6,
+      defense: 4
     },
     {
-      position: {x: -100, z: -40},
+      position: {x: 60, z:-10},
       rotation: 0,
       ok: false,
-      player: 'green',
-      soldiers: 3,
+      player: 'red',
+      soldiers: 0,
       mines: 2,
-      gold: 5,
-      defense: 5
+      gold: 8,
+      defense: 7
     },
     {
-      position: {x: -50, z: 10},
+      position: {x: 120, z:-40},
       rotation: 0,
       ok: false,
-      player: 'green',
-      soldiers: 4,
-      mines: 2,
-      gold: 5,
-      defense: 5
-    }
+      player: 'red',
+      soldiers: 0,
+      mines: 3,
+      gold: 4,
+      defense: 3
+    },
+    {
+      position: {x: 105, z:20},
+      rotation: 0,
+      ok: false,
+      player: 'red',
+      soldiers: 0,
+      mines: 3,
+      gold: 4,
+      defense: 3
+    },
   ],
 
   links: [
-    [0, 1],
     [0, 2],
-    [2, 1]
+    [0, 3],
+    [1, 2],
+    [2, 5],
+    [2, 3],
+    [4, 7],
+    [5, 6],
+    [5, 4],
+    [5, 7],
   ],
 
   clouds: [
