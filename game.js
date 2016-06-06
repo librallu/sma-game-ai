@@ -18,10 +18,15 @@ var popup = document.getElementById('popup');
 var popupButton = document.getElementById('popup-close');
 var popupTitle = document.getElementById('popup-title');
 var popupBody = document.getElementById('popup-body');
+var slider = document.querySelector('#slider .slider');
+var sliderRight = document.getElementById('slider-right');
+var sliderLeft = document.getElementById('slider-left');
+var slider_state = 0;
+var slider_size = 640;
 
 function popTuto() {
 
-  // popup.style.display = "block";
+  popup.style.display = "block";
 
   popupButton.addEventListener('click', function() {
     popup.style.display = "none";
@@ -32,7 +37,30 @@ function popTuto() {
     if ( event.target == popup ) {
       popup.style.display = "none";
     }
-  }
+  };
+
+  // add listener buttons
+  sliderRight.onclick = function(event) {
+    sliderLeft.style.display = "block";
+    if ( slider_state > -2) {
+      slider_state--;
+      slider.style.transform = 'translate('+(slider_size*slider_state)+'px, 0)';
+      if ( slider_state == -2 ) {
+        sliderRight.style.display = "none";
+      }
+    }
+  };
+
+  sliderLeft.onclick = function(event) {
+    sliderRight.style.display = "block";
+    if ( slider_state < 0 ) {
+      slider_state++;
+      slider.style.transform = 'translate('+(slider_size*slider_state)+'px, 0)';
+      if ( slider_state == 0 ) {
+        sliderLeft.style.display = "none";
+      }
+    }
+  };
 }
 
 function popWin() {

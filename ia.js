@@ -68,6 +68,8 @@ function call_ia(i) {
 
   console.log(managers_result);
 
+  // if army is less needing soldiers
+
 
   return {
     'prod_soldiers': 1,

@@ -132,7 +132,7 @@
       margin:auto;
       margin-top: 30px;
       background-color: #eee;
-      opacity: 0.9;
+      opacity: 1;
       padding: 20px;
       padding-top: 5px;
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -156,6 +156,85 @@
         padding-bottom: 10px;
     }
 
+    #popup-title {
+        text-align: center;
+    }
+
+
+    /* style slider */
+    #slider {
+        position: relative;
+        overflow: hidden;
+        width: 640px;
+        height: 310px;
+        border: 1px solid #ddd;
+        margin: 0 auto 2em;
+        background: #fff;
+        border-radius: 2px;
+        box-shadow: 0 0 3px rgba(0,0,0, 0.2);
+    }
+
+    #slider .container {
+        position: relative;
+        width: 640px;
+        height: 310px;
+        overflow: hidden;
+    }
+
+    #slider .slider {
+        position: absolute;
+        left: 0; top: 0;
+        width: 400%;
+        height: 310px;
+        transition: 1s all;
+    }
+
+    #slider figure {
+        position: relative;
+        display: inline-block;
+        padding: 0; margin: 0;
+    }
+
+    #slider figcaption {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 5px;
+        padding: 20px;
+        margin: 0;
+        border-top: 1px solid white;
+        text-align: center;
+        background: #fff;
+        background: rgba(255,255,255,0.7);
+        color: #444;
+        font-family: sans-serif;
+    }
+
+    #slider button {
+        position: relative;
+        font-weight: bold;
+        border: 0;
+        border-radius: 0;
+        background: #ddd;
+        color: #777;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 45px;
+        margin: 20px;
+        margin-top: 110px;
+        box-shadow: 1px 1px 5px rgba(0,0,0, 0.4);
+    }
+
+    #slider-left {
+        float: left;
+        display: none;
+    }
+
+    #slider-right {
+        float: right;
+    }
+
 
   </style>
 </head>
@@ -167,10 +246,31 @@
         <div id="popup-content">
             <div id="popup-header">
                 <span id="popup-close">×</span>
-                    <h2 id="popup-title">Modal Header</h2>
+                    <h2 id="popup-title">Comment jouer</h2>
             </div>
             <div id="popup-body">
-                Hello world
+                <section id="slider">
+                    <div class="continer">
+                        <div class="c_slider"></div>
+                        <div class="slider">
+                            <a href="#"><figure>
+                                <img src="tuto1.jpg" alt="" width="640" height="310" />
+                                <figcaption>Les villes alliées sélectionnables sont entourées en orange.</figcaption>
+                            </figure></a><!--
+                         --><a href="#"><figure>
+                                <img src="tuto2.jpg" alt="" width="640" height="310" />
+                                <figcaption>Une fois la ville sélectionnée, cliquer sur une ville verte enverra les troupes en soutien. Cliquer sur une ville rouge attaquera cette ville.</figcaption>
+                            </figure></a><!--
+                         --><a href="#"><figure>
+                                <img src="tuto1.jpg" alt="" width="640" height="310" />
+                                <figcaption>Les infobulles à côté des villes indiquent respectivement la quantité d'or, de troupes, de défense et de production d'or chaque tour. Ces valeurs peuvent être construites en échange d'un certain montant d'or.</figcaption>
+                            </figure></a>
+                        </div>
+                    </div>
+                    <span id="timeline"></span>
+                    <button id="slider-left">&lt;</button>
+                    <button id="slider-right">&gt;</button>
+                </section>
             </div>
         </div>
     </div>
