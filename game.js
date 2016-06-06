@@ -23,6 +23,8 @@ var sliderRight = document.getElementById('slider-right');
 var sliderLeft = document.getElementById('slider-left');
 var slider_state = 0;
 var slider_size = 640;
+var slider_nbelt = slider.childNodes.length;
+console.log(slider_nbelt);
 
 function popTuto() {
 
@@ -42,10 +44,10 @@ function popTuto() {
   // add listener buttons
   sliderRight.onclick = function(event) {
     sliderLeft.style.display = "block";
-    if ( slider_state > -2) {
+    if ( slider_state > -slider_nbelt+1) {
       slider_state--;
       slider.style.transform = 'translate('+(slider_size*slider_state)+'px, 0)';
-      if ( slider_state == -2 ) {
+      if ( slider_state == -slider_nbelt+1 ) {
         sliderRight.style.display = "none";
       }
     }
