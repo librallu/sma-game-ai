@@ -46,7 +46,7 @@ function popTuto() {
     sliderLeft.style.display = "block";
     if ( slider_state > -slider_nbelt+1) {
       slider_state--;
-      slider.style.transform = 'translate('+(slider_size*slider_state)+'px, 0)';
+      slider.style.transform = 'translate('+(slider_size*slider_state+320)+'px, 0)';
       if ( slider_state == -slider_nbelt+1 ) {
         sliderRight.style.display = "none";
       }
@@ -57,7 +57,7 @@ function popTuto() {
     sliderRight.style.display = "block";
     if ( slider_state < 0 ) {
       slider_state++;
-      slider.style.transform = 'translate('+(slider_size*slider_state)+'px, 0)';
+      slider.style.transform = 'translate('+(slider_size*slider_state+320)+'px, 0)';
       if ( slider_state == 0 ) {
         sliderLeft.style.display = "none";
       }
